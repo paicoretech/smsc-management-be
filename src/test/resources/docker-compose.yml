@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  redis-node-0:
+    image: docker.io/bitnamilegacy/redis-cluster:7.2
+    ports:
+      - '8910:6379'
+    environment:
+      - 'ALLOW_EMPTY_PASSWORD=yes'
+      - 'REDIS_NODES=redis-node-0 redis-node-1 redis-node-2'
+      - 'REDIS_ALLOW_REMOTE_CONNECTIONS=yes'
+
+  redis-node-1:
+    image: docker.io/bitnamilegacy/redis-cluster:7.2
+    ports:
+      - '8911:6379'
+    environment:
+      - 'ALLOW_EMPTY_PASSWORD=yes'
+      - 'REDIS_NODES=redis-node-0 redis-node-1 redis-node-2'
+      - 'REDIS_ALLOW_REMOTE_CONNECTIONS=yes'
+
+  redis-node-2:
+    image: docker.io/bitnamilegacy/redis-cluster:7.2
+    ports:
+      - '8912:6379'
+    environment:
+      - 'ALLOW_EMPTY_PASSWORD=yes'
+      - 'REDIS_CLUSTER_REPLICAS=0'
+      - 'REDIS_NODES=redis-node-0 redis-node-1 redis-node-2'
+      - 'REDIS_CLUSTER_CREATOR=yes'
+      - 'REDIS_ALLOW_REMOTE_CONNECTIONS=yes'
