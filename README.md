@@ -1,9 +1,5 @@
 # SMSc management backend API
 
-## Repository
-
-[https://bitbucket.org/paicdb/smsc-management-be/src/main/](https://bitbucket.org/paicdb/smsc-management-be/src/main/)
-
 ## Table of Contents
 
 1. [System Requirements](#system-requirements)
